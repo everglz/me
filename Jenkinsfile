@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'npm install'
+        bat 'C:\\Users\\Cleber\\Desktop\\Jenkins\\file.sh'
       }
     }
   }
