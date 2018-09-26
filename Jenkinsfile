@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        bat 'C:\\Users\\Cleber\\Desktop\\Jenkins\\file.bat'
+        bat 'C:\\Users\\Cleber\\Desktop\\Jenkins\\install.bat'
       }
     }
   }
