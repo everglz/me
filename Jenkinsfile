@@ -6,5 +6,10 @@ pipeline {
         bat 'C:\\Users\\Cleber\\Desktop\\Jenkins\\install.bat'
       }
     }
+    stage('Build') {
+      steps {
+        bat 'C:\\Users\\Cleber\\Desktop\\Jenkins\\build.bat'
+      }
+    }
   }
 }
