@@ -12,8 +12,17 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        bat 'C:\\Users\\Cleber\\Desktop\\Jenkins\\test.bat'
+      parallel {
+        stage('Test') {
+          steps {
+            bat 'C:\\Users\\Cleber\\Desktop\\Jenkins\\test.bat'
+          }
+        }
+        stage('Send Mail') {
+          steps {
+            emailext(subject: 'Aprobar', body: 'Favor de Aprobar', to: 'laugza')
+          }
+        }
       }
     }
   }
