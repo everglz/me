@@ -20,9 +20,24 @@ pipeline {
         }
         stage('Send Mail') {
           steps {
-            emailext(subject: 'Aprobar', body: 'Favor de Aprobar', to: 'laugza')
+            emailext(subject: 'Aprobar', body: 'Favor de Aprobar', to: 'laugza', attachLog: true)
           }
         }
+      }
+    }
+    stage('Aprove') {
+      steps {
+        input(message: 'Aprobar?', submitter: 'laugza')
+      }
+    }
+    stage('ToDeploy') {
+      steps {
+        emailext(subject: 'Deploy', attachLog: true, body: 'Need Aprove', to: 'ianglz')
+      }
+    }
+    stage('To Deploy A') {
+      steps {
+        input(message: 'Aprove', submitter: 'ianglz')
       }
     }
   }
